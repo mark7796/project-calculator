@@ -8,16 +8,16 @@ const updateDisplayValue = function (x) {
 };
 
 
-let firstNumber = 0;
+let firstNumber = [];
 let operator = '';
-let secondNumber = 0;
+let secondNumber = [];
 
 
 const clearAll = function() {
     whatISeeInDisplay.textContent = '';
-    firstNumber = 0;
+    firstNumber = [];
     operator = '';
-    secondNumber = 0;
+    secondNumber = [];
 };
 
 
@@ -42,9 +42,9 @@ const clearBtn = document.querySelector('#clear');
 
 const updateFirstAndSecondNumber = function (x) {
     if (operator == '') {
-        firstNumber += x;
+        firstNumber.push(x);
     } else {
-        secondNumber += x;
+        secondNumber.push(x);
     }
 }; 
 const updateOperator = function (x) {
@@ -114,8 +114,10 @@ equalBtn.addEventListener('click', () => {
         clearAll();
         updateDisplayValue('ERROR! You cannot divide by zero!');
     }
+    a = parseInt(firstNumber.join(''));
+    b = parseInt(secondNumber.join(''));
     updateDisplayValue('=');
-    updateDisplayValue(operate(firstNumber, operator, secondNumber));
+    updateDisplayValue(operate(a, operator, b));
 });
 clearBtn.addEventListener('click', () => {
     clearAll();
