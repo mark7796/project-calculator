@@ -110,6 +110,10 @@ divBtn.addEventListener('click', () => {
     updateOperator('/');
 });
 equalBtn.addEventListener('click', () => {
+    if (operator == '/' && secondNumber == 0) {
+        clearAll();
+        updateDisplayValue('ERROR! You cannot divide by zero!');
+    }
     updateDisplayValue('=');
     updateDisplayValue(operate(firstNumber, operator, secondNumber));
 });
