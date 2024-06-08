@@ -6,6 +6,9 @@ const updateDisplayValue = function (x) {
     displayValue = x;
     whatISeeInDisplay.textContent += displayValue;
 };
+const clearDisplayValue = function() {
+    whatISeeInDisplay.textContent = '';
+}
 
 
 
@@ -20,36 +23,63 @@ const sevenBtn = document.querySelector('#seven');
 const eightBtn = document.querySelector('#eight');
 const nineBtn = document.querySelector('#nine');
 
+const plusBtn = document.querySelector('#add');
+const minusBtn = document.querySelector('#substract');
+const perBtn = document.querySelector('#multiply');
+const divBtn = document.querySelector('#divide');
+const equalBtn = document.querySelector('#equals');
+const clearBtn = document.querySelector('#clear');
+
 
 zeroBtn.addEventListener('click', () => {
     updateDisplayValue(0);
     });
 oneBtn.addEventListener('click', () => {
-    result += '1';
+    updateDisplayValue(1);
 });
 twoBtn.addEventListener('click', () => {
-    result += '2';
+    updateDisplayValue(2);
 });
 threeBtn.addEventListener('click', () => {
-    result += '3';
+    updateDisplayValue(3);
 });
 fourBtn.addEventListener('click', () => {
-    result += '4';
+    updateDisplayValue(4);
 });
 fiveBtn.addEventListener('click', () => {
-    result += '5';
+    updateDisplayValue(5);
 });
 sixBtn.addEventListener('click', () => {
-    result += '6';
+    updateDisplayValue(6);
 });
 sevenBtn.addEventListener('click', () => {
-    result += '7';
+    updateDisplayValue(7);
 });
 eightBtn.addEventListener('click', () => {
-    result += '8';
+    updateDisplayValue(8);
 });
 nineBtn.addEventListener('click', () => {
-    result += '9';
+    updateDisplayValue(9);
+});
+
+
+plusBtn.addEventListener('click', () => {
+    updateDisplayValue('+');
+});
+minusBtn.addEventListener('click', () => {
+    updateDisplayValue('-');
+});
+perBtn.addEventListener('click', () => {
+    updateDisplayValue('*');
+});
+divBtn.addEventListener('click', () => {
+    updateDisplayValue('/');
+});
+equalBtn.addEventListener('click', () => {
+
+});
+clearBtn.addEventListener('click', () => {
+    clearDisplayValue();
 });
 
 
@@ -89,4 +119,3 @@ const divide = function(a, b) {
     return a / b;
 };
 
-console.log(operate(firstNumber, operator, secondNumber));
