@@ -110,14 +110,20 @@ divBtn.addEventListener('click', () => {
     updateOperator('/');
 });
 equalBtn.addEventListener('click', () => {
-    if (operator == '/' && secondNumber == 0) {
-        clearAll();
-        updateDisplayValue('ERROR! You cannot divide by zero!');
-    }
     a = parseInt(firstNumber.join(''));
     b = parseInt(secondNumber.join(''));
-    updateDisplayValue('=');
+    whatISeeInDisplay.textContent = '';
     updateDisplayValue(operate(a, operator, b));
+    if (operator == '/' && b == 0) {
+        clearAll();
+        updateDisplayValue('ERROR! You cannot divide by zero!');
+    } else if (operator == '') {
+        clearAll();
+        updateDisplayValue('You have to select an operator!');
+    } else if (console.log(operate(a, operator, b) == false)) {
+        whatISeeInDisplay.textContent = '';
+        updateDisplayValue(operate(a, operator, a));
+    }
 });
 clearBtn.addEventListener('click', () => {
     clearAll();
@@ -155,6 +161,8 @@ const multiply = function(a, b) {
 };
 
 const divide = function(a, b) {
-    return a / b;
+    let division = a / b;
+    let result = division.toFixed(1);
+    return result;
 };
 
