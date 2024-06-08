@@ -3,6 +3,20 @@ let operator = '';
 let secondNumber = 0;
 
 
+const operate = function(firstNumber, operator, secondNumber) {
+    switch (operator) {
+        case '+': return add(firstNumber, secondNumber);
+                    break;
+        case '-': return substract(firstNumber, secondNumber);
+                    break;
+        case '*': return multiply(firstNumber, secondNumber);
+                    break;
+        case '/': return divide(firstNumber, secondNumber);
+                    break;
+    }
+}
+
+
 const add = function(a, b) {
     return a + b;
 };
@@ -19,7 +33,4 @@ const divide = function(a, b) {
     return a / b;
 };
 
-console.log(add(7, 3));
-console.log(substract(7, 3));
-console.log(multiply(7, 3));
-console.log(divide(7, 3));
+console.log(operate(firstNumber, operator, secondNumber));
