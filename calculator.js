@@ -1,3 +1,8 @@
+let firstNumber = 0;
+let operator = '';
+let secondNumber = 0;
+
+
 const add = function(a, b) {
     return a + b;
 };
