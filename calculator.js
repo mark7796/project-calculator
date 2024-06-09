@@ -158,15 +158,18 @@ equalBtn.addEventListener('click', () => {
     b = parseInt(secondNumber.join(''));
     whatISeeInDisplay.textContent = '';
     updateDisplayValue(operate(a, operator, b));
-    if (operator == '/' && b == 0) {
+    if(!a) {
+        clearAll();
+        updateDisplayValue('Cretino! Devi digitare dei numeri!');
+    } else if (operator == '/' && b == 0) {
         clearAll();
         updateDisplayValue('ERROR! You cannot divide by zero!');
     } else if (operator == '') {
         clearAll();
         updateDisplayValue('You have to select an operator!');
-    } else if (console.log(operate(a, operator, b) == false)) {
-        whatISeeInDisplay.textContent = '';
-        updateDisplayValue(operate(a, operator, a));
+    } else if (!b) {
+        clearAll();
+        updateDisplayValue('Cretino! Mi servono almeno due numeri per fare una operazione!');
     }
 });
 clearBtn.addEventListener('click', () => {
