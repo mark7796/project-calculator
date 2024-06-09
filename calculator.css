@@ -3,13 +3,33 @@ h1 {
 }
 div.numbers {
     display: flex;
+    justify-content: center;
 }
 div.operators {
     display: flex;
+    justify-content: center;
+}
+div.editing {
+    display: flex;
+    justify-content: center;
 }
 .display {
     display: flex;
-    width: 100px;
-    height: 100px;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    align-content: center;
+    height: 250px;
+    width: 250px;
     background-color: blue;
+}
+div.numbers button {
+    background-color: blueviolet;
+}
+div.operators button {
+    background-color: brown;
+}
+div.editing button {
+    background-color: aquamarine;
 }

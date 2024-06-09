@@ -20,6 +20,10 @@ const clearAll = function() {
     secondNumber = [];
 };
 
+/*const backSpace = function() {
+    whatISeeInDisplay.textContent = displayValue.replace(/.$/, "");    
+    console.log('backspace');
+};*/
 
 const zeroBtn = document.querySelector('#zero');
 const oneBtn = document.querySelector('#one');
@@ -37,7 +41,10 @@ const minusBtn = document.querySelector('#substract');
 const perBtn = document.querySelector('#multiply');
 const divBtn = document.querySelector('#divide');
 const equalBtn = document.querySelector('#equals');
+
 const clearBtn = document.querySelector('#clear');
+const dotBtn = document.querySelector('#dot');
+const backSpaceBtn = document.querySelector('#backspace');
 
 
 const updateFirstAndSecondNumber = function (x) {
@@ -128,8 +135,17 @@ equalBtn.addEventListener('click', () => {
 clearBtn.addEventListener('click', () => {
     clearAll();
 });
-
-
+/*dotBtn.addEventListener('click', () => {
+    updateDisplayValue('.');
+    if (firstNumber.includes('.') || secondNumber.includes('.')) {
+        clearAll();
+        updateDisplayValue('You cannot use dot twice!');
+    }
+    updateFirstAndSecondNumber('.');
+});*/
+backSpaceBtn.addEventListener('click', () => {
+    backSpace();
+});
 
 
 
