@@ -20,6 +20,27 @@ const clearAll = function() {
     secondNumber = [];
 };
 
+const anotherOperation = function(x) {
+    a = parseInt(firstNumber.join(''));
+    b = parseInt(secondNumber.join(''));
+    whatISeeInDisplay.textContent = '';
+    updateDisplayValue(operate(a, operator, b));
+    if (operator == '/' && b == 0) {
+        clearAll();
+        updateDisplayValue('ERROR! You cannot divide by zero!');
+    } else if (operator == '') {
+        clearAll();
+        updateDisplayValue('You have to select an operator!');
+    } else if (console.log(operate(a, operator, b) == false)) {
+        whatISeeInDisplay.textContent = '';
+        updateDisplayValue(operate(a, operator, a));
+    }
+    firstNumber = [operate(a, operator, b)];
+    operator = x;
+    secondNumber = [];
+    updateDisplayValue(x);
+}
+
 /*const backSpace = function() {
     whatISeeInDisplay.textContent = displayValue.replace(/.$/, "");    
     console.log('backspace');
@@ -101,20 +122,36 @@ nineBtn.addEventListener('click', () => {
 
 
 plusBtn.addEventListener('click', () => {
-    updateDisplayValue('+');
+    if (operator !== '') {
+        anotherOperation('+');
+    } else {
+        updateDisplayValue('+');
     updateOperator('+');
+    }
 });
 minusBtn.addEventListener('click', () => {
-    updateDisplayValue('-');
-    updateOperator('-');
+    if (operator !== '') {
+        anotherOperation('-');
+    } else {
+        updateDisplayValue('-');
+        updateOperator('-');
+    }
 });
 perBtn.addEventListener('click', () => {
+    if (operator !== '') {
+        anotherOperation('*');
+    } else {
     updateDisplayValue('*');
     updateOperator('*');
+    }
 });
 divBtn.addEventListener('click', () => {
+    if (operator !== '') {
+        anotherOperation('/');
+    } else {
     updateDisplayValue('/');
     updateOperator('/');
+    }
 });
 equalBtn.addEventListener('click', () => {
     a = parseInt(firstNumber.join(''));
